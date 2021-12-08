@@ -7,7 +7,6 @@ carre_mag= [[4,14,15,1],[9,7,6,12],[5,11,10,8],[16,2,3,13]]
 #print(carre_mag[2])
 #print(carre_mag[3])
 
-
 carre_pas_mag = [[4,14,15,1],[9,7,6,12],[5,11,10,8],[16,2,7,13]]
 #print(carre_pas_mag[0])
 #print(carre_pas_mag[1])
@@ -121,12 +120,7 @@ def estNormal(carre):
     for a in range(0,4):
         for b in range (0,4) :
             liste_carre_magique.append(carre[a][b])
-
-    
     liste_carre_magique.sort()
-    print(valeurs_du_carre)
-    print(liste_carre_magique)
-    
     if valeurs_du_carre == liste_carre_magique :
         return True
     else :
