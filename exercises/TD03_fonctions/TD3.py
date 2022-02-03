@@ -74,14 +74,14 @@ def demandeTemps():
     return(entrejours, entreheures, entreminutes, entresecondes)
 afficheTemps(demandeTemps()) 
 
-def sommeTemps(temps1 : list,temps2: list):
+def sommeTemps(temps1, temps2):
     somme = tempsEnSeconde(temps1) + tempsEnSeconde(temps2)
     return secondeEnTemps(somme)
     
 print(sommeTemps((2,3,4,25),(5,22,57,1)))
 
 
-def proportionTemps(temps:list,proportion:int):
+def proportionTemps(temps,proportion):
     return secondeEnTemps(secondeEnTemps(temps) * (proportion//100))
     
 afficheTemps(proportionTemps((2,0,36,0),0.2))
@@ -160,5 +160,6 @@ def verifie(horaires):
         if tempsEnSeconde(elem) > (48*3600) or sommehoraire > (140 * 3600) :
             return print("l'employé a fait plus que la limite ")
     return print("il a fait moins que la limite")
- horaires = [[1,2,39,34],[0,1,9,4],[0,29,39,51],[0,31,13,46]]
+    
+horaires = [[1,2,39,34],[0,1,9,4],[0,29,39,51],[0,31,13,46]]
 verifie(horaires)
