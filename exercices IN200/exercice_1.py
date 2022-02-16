@@ -1,47 +1,44 @@
-from tabnanny import check
-from textwrap import fill
 import tkinter as tk
-from turtle import color
-color = "blue"
-check = True 
-
-#creation event clique sur rectangle
+#variable
+rectangle = 0
+color = "red"
+out =False
+#fonction
 
 def clique_rectangle(event):
-    global color, check
-    if check is not False:
-        x = event.x
-        y = event.y
-        if x <= 100 and x >= 300 and y <= 100 and y >=300 :
-            canvas.itemconfigure(rectangle, fill=color, outline="blue")
-                if color == "blue" :
-                    color = "red"
-                else :
-                    color ="blue"
-        else :
-            check=False
-    return
-
-#creation event recommencer
-
-def recommencer(event):
-    global check
-    check = True
-    return
+    global rectangle, color, out
+    x = event.x
+    y = event.y
+    if out == False:
+        if x > 100 and x < 300 and y > 100 and y < 200 and color == "red" and out == False:
+            color = "blue"
+            rectangle = canvas.create_rectangle ((100, 100), (300, 200), fill=color)
+        elif x > 100 and x < 300 and y > 100 and y < 200 and color == "blue" and out == False:
+            color = "red"
+            rectangle = canvas.create_rectangle((100, 100), (300, 200), fill=color)
+        else : 
+            out =True
+    
+def recommencer():
+    global out
+    out = False
 
 
 
 
-#creation widgets
+
+
+
+
+
 racine = tk.Tk()
 racine.title("Le Roi du Sel")
-bouton = tk.Button(text="recommencer",font=("Helvetica", "30"))
+bouton = tk.Button(text="recommencer", font=("Helvetica", "30"),command=recommencer)
 bouton.grid(row=2, column=0)
 canvas = tk.Canvas(racine, height=500, width=500, bg="black")
-rectangle = canvas.create_rectangle ((200, 200),(150, 150), fill="red")
+rectangle = canvas.create_rectangle((100, 100), (300, 200), fill=color)
 canvas.grid(row=1, column=0)
-racine.bind ("<Button-1>", clique_rectangle )
+racine.bind("<Button-1>", clique_rectangle)
 
 
 racine.mainloop()
-
