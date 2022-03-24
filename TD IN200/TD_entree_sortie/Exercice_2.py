@@ -69,3 +69,5 @@ def ecrit_liste_compatible(fichier, m , profil):
             fs.write(ligne)
     fs.close()
     fe.close()
+
+ecrit_liste_compatible("words6.txt","canard",[0,0,2,0,0,0])
