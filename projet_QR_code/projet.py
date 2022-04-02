@@ -19,3 +19,5 @@ def loading(filename):#charge le fichier image filename et renvoie une matrice d
         for j in range(toLoad.size[0]):
             mat[i][j]= 0 if toLoad.getpixel((j,i)) == 0 else 1
     return mat
+
+
