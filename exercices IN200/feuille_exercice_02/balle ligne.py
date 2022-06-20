@@ -12,6 +12,7 @@ aleatoire = 0
 ###################
 # Fonctions
 
+
 def creer_balle():
     """Dessine un disque bleu et retourne son identifiant
      et les valeurs de déplacements dans une liste"""
@@ -29,29 +30,25 @@ def mouvement():
     rebond()
     canvas.move(balle[0], balle[1], balle[2])
     canvas.after(20, mouvement)
-   
-
-
 
 
 def rebond():
     """Fait rebondir la balle sur les bords du canevas"""
     global balle, aleatoire
-    
+
     if aleatoire <= 10:
         canvas.itemconfig(ligne, fill="black")
-        t= 600
+        t = 600
     else:
-        t=300
-        canvas.itemconfig(ligne,fill="white")
-        
+        t = 300
+        canvas.itemconfig(ligne, fill="white")
+
     x0, y0, x1, y1 = canvas.coords(balle[0])
     if x0 <= 0 or x1 >= t:
         balle[1] = -balle[1]
-        aleatoire =rd.randint(0, 100)
+        aleatoire = rd.randint(0, 100)
         print(aleatoire)
-        
-        
+
     if y0 <= 0 or y1 >= 400:
         balle[2] = -balle[2]
         aleatoire = rd.randint(0, 100)
@@ -66,7 +63,7 @@ racine = tk.Tk()
 canvas = tk.Canvas(racine, bg="black", width=LARGEUR, height=HAUTEUR)
 canvas.grid()
 #ligne
-ligne = canvas.create_line((LARGEUR//2, 0), (LARGEUR//2,HAUTEUR), fill="white")
+ligne = canvas.create_line((LARGEUR//2, 0), (LARGEUR//2, HAUTEUR), fill="white")
 # initialisation de la balle
 balle = creer_balle()
 

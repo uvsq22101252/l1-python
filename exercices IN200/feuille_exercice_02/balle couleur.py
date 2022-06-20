@@ -1,7 +1,4 @@
 import tkinter as tk
-
-
-
 ##################
 # Constantes
 
@@ -11,6 +8,7 @@ compteur = 0
 
 ###################
 # Fonctions
+
 
 def creer_balle():
     global cercle
@@ -39,32 +37,27 @@ def rebond():
     """Fait rebondir la balle sur les bords du canevas"""
     global balle, compteur
     x0, y0, x1, y1 = canvas.coords(balle[0])
-    
+
     if x0 <= 0 or x1 >= 600:
         balle[1] = -balle[1]
         compteur += 1
     if y0 <= 0 or y1 >= 400:
         balle[2] = -balle[2]
         compteur += 1
-    
-    if   (x0 or x1) <=10:
-        canvas.itemconfig(cercle, fill="yellow")
-        
-    if  (x0 and x1 )<=600 and (y0 and y1) ==0 :
-        canvas.itemconfig(cercle, fill="red")
-        
-    if  (x0 and x1) <=600 and (y0 and y1) == 400:
-        canvas.itemconfig(cercle, fill="blue")
-        
-    if  (x0 and x1) >= 590:
-        canvas.itemconfig(cercle, fill="green")
-        
-    
 
-             
-            
-   
-   
+    if (x0 or x1) <= 10:
+        canvas.itemconfig(cercle, fill="yellow")
+
+    if (x0 and x1) <= 600 and (y0 and y1) == 0:
+        canvas.itemconfig(cercle, fill="red")
+
+    if (x0 and x1) <= 600 and (y0 and y1) == 400:
+        canvas.itemconfig(cercle, fill="blue")
+
+    if (x0 and x1) >= 590:
+        canvas.itemconfig(cercle, fill="green")
+
+
 ######################
 # programme principal
 
