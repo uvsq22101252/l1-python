@@ -14,7 +14,7 @@ print(nbr_lignes("words.txt"))
 
 
 def ecrit_liste_mots(n):
-    fic = open ("words.txt", "r")
+    fic = open("words.txt", "r")
     fic_out = open("words" + str(n) + ".txt", "w")
     for ligne in fic:
         mot = ligne.strip()
@@ -53,21 +53,25 @@ def compare_mots(m1, m2):
         if profil != 1:
             l1 = m1[i]
             for j in range(n):
-                if m2[j]==l1 and j not in position:
+                if m2[j] == l1 and j not in position:
                     profil[i] = 2
                     position.append(j)
                     break
         return profil
+
+
 compare_mots("anvil", )
 
-def ecrit_liste_compatible(fichier, m , profil):
-    fs = open(fichier + "comp","w")
-    fe =open(fichier,"r")
-    for ligne in fe :
+
+def ecrit_liste_compatible(fichier, m, profil):
+    fs = open(fichier + "comp", "w")
+    fe = open(fichier, "r")
+    for ligne in fe:
         mot = ligne.strip()
-        if compare_mots(m,mot)==profil :
+        if compare_mots(m, mot) == profil:
             fs.write(ligne)
     fs.close()
     fe.close()
 
-ecrit_liste_compatible("words6.txt","canard",[0,0,2,0,0,0])
+
+ecrit_liste_compatible("words6.txt", "canard", [0, 0, 2, 0, 0, 0])
